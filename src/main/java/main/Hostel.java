@@ -1,3 +1,5 @@
+
+
 package main;
 
 import static org.junit.Assert.assertEquals;
@@ -38,20 +40,28 @@ public class Hostel{
 	               //write your code here !!!
 	               while ((line = br.readLine()) != null) {
 		               String[] splited = line.split("\\s+");
-		               String checkName = splited[0];
+		               String checkName = name;
 		               //write your code here !!!
 //		               compare check name with name and return true if present and false if not
+		               if(splited[0].equals(name))
+		               {
+		            	   return true;
+		               }
 	               }
-	               
-	               
 	            }catch(Exception e){
 	                System.out.println(e);
 	            }
-			return true;
+			return false;
 	   }
        public static void allotHostel(){
     	   //write your code here!!!
-    	   
+    	   try 
+    	   {
+    		   writedata();
+    	   }catch(IOException e)
+    	   {
+    		   System.out.println(e);
+    	   }
        }
 
        public static boolean verifyStudent(int regNo){
@@ -73,10 +83,11 @@ public class Hostel{
         }
            
        public static boolean verifyName(String name){
-    	   boolean chk = true;
+    	   boolean chk = false;
     	   
     	   //write your code here
     	   
+    	   chk=readData(name);
     	   return chk;
         }
         
